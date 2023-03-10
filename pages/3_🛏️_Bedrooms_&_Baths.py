@@ -26,17 +26,11 @@ with open('style.css')as f:
 @st.cache()
 def get_data(query):
     if query == 'bedrooms_bathroom_orginal':
-        return pd.read_csv('Data/Bedrooms_Bathrooms/Bedrooms_Bathrooms.csv')
-    elif query == 'Weekly_2022':
-        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Hollywood_Box_Office_Tragedy/main/Data/Domestic/Y22/Y22-Weekly.csv')
-    elif query == 'table':
-        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Hollywood_Box_Office_Tragedy/main/Data/Domestic/Y22/Y22-Weekly2.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Bedrooms_Bathrooms/Bedrooms_Bathrooms.csv')
     return None
 
 
 bedrooms_bathroom_orginal = get_data('bedrooms_bathroom_orginal')
-Weekly_2022 = get_data('Weekly_2022')
-table = get_data('table')
 
 df = bedrooms_bathroom_orginal
 df2 = df[(df['Number_of_Bedrooms'] <= 3)]

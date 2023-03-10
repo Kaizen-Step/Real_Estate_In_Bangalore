@@ -30,7 +30,7 @@ with open('style.css')as f:
 @st.cache(allow_output_mutation=True)
 def get_data(query):
     if query == 'Bangalore_revised':
-        return pd.read_csv('Data/finalized_Data_frame8.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/finalized_Data_frame8.csv')
     return None
 
 

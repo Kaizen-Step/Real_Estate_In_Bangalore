@@ -24,15 +24,15 @@ with open('style.css')as f:
 @st.cache(allow_output_mutation=True)
 def get_data(query):
     if query == 'Neighborhood_orginal':
-        return pd.read_csv('Data/Neighborhoods/Neighborhood.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Neighborhoods/Neighborhood.csv')
     elif query == 'average_neighborhood':
-        return pd.read_csv('Data/Neighborhoods/Average_neighborhood3.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Neighborhoods/Average_neighborhood3.csv')
     elif query == 'Total_Neighborhood':
-        return pd.read_csv('Data/Neighborhoods/total_neighborhood_averages.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Neighborhoods/total_neighborhood_averages.csv')
     elif query == 'Number_of_Luxuries_houses':
-        return pd.read_csv('Data/Neighborhoods/Number_of_Luxuries_houses.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Neighborhoods/Number_of_Luxuries_houses.csv')
     elif query == 'loc_bang':
-        return pd.read_csv('Data/Locations/Bangalore_Locations3.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Locations/Bangalore_Locations3.csv')
     return None
 
 

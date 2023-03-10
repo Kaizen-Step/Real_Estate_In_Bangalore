@@ -24,7 +24,7 @@ with open('style.css')as f:
 @st.cache()
 def get_data(query):
     if query == 'bedrooms_bathroom_orginal':
-        return pd.read_csv('Data/Building_Type/Building_type.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Building_Type/Building_type.csv')
     elif query == 'Number_of_Release':
         return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Hollywood_Box_Office_Tragedy/main/Data/Geners/Genre-Total2.csv')
     elif query == 'average_per_release':

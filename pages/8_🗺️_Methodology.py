@@ -22,7 +22,7 @@ with open('style.css')as f:
 @st.cache()
 def get_data(query):
     if query == 'Original_Bangalore':
-        return pd.read_csv('Bangalore Data frame/Bengaluru_House_Data.csv')
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Bangalore%20Data%20frame/Bengaluru_House_Data.csv')
     return None
 
 # Convert square feet to square meter
