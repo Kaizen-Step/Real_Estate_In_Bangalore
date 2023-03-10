@@ -4,7 +4,6 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.subplots as sp
-import matplotlib.pyplot as plt
 import altair as alt
 from vega_datasets import data
 

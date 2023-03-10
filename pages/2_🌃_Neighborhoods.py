@@ -4,8 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.subplots as sp
-from geopy.geocoders import Nominatim
-import streamlit.components.v1 as components
+
 
 # Theme
 theme_plotly = None  # None or streamlit

@@ -12,7 +12,6 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import Lasso
 from sklearn.tree import DecisionTreeRegressor
-from streamlit.components.v1 import html
 from PIL import Image
 
 # Layout
