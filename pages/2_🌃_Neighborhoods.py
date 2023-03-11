@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.subplots as sp
-
+import altair as alt
 
 # Theme
 theme_plotly = None  # None or streamlit
@@ -32,6 +32,8 @@ def get_data(query):
         return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Neighborhoods/Number_of_Luxuries_houses.csv')
     elif query == 'loc_bang':
         return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Locations/Bangalore_Locations3.csv')
+    elif query == 'bedrooms_bathroom_orginal':
+        return pd.read_csv('https://raw.githubusercontent.com/Kaizen-Step/Real_Estate_In_Bangalore/main/Data/Bedrooms_Bathrooms/Bedrooms_Bathrooms.csv')
     return None
 
 
@@ -40,6 +42,8 @@ average_neighborhood = get_data('average_neighborhood')
 Total_Neighborhood = get_data('Total_Neighborhood')
 Number_of_Luxuries_houses = get_data('Number_of_Luxuries_houses')
 loc_bang = get_data('loc_bang')
+bedrooms_bathroom_orginal = get_data('bedrooms_bathroom_orginal')
+
 
 df = Neighborhood_orginal
 df2 = average_neighborhood
@@ -47,6 +51,11 @@ df3 = Total_Neighborhood
 df4 = Number_of_Luxuries_houses[(
     Number_of_Luxuries_houses['location'] != 'other')]
 df5 = loc_bang
+
+df11 = bedrooms_bathroom_orginal
+df12 = df11[(df11['Number_of_Bedrooms'] <= 3)]
+df13 = df11[(df11['Number_of_Bedrooms'] >= 4)]
+df14 = df13[(df13['Dollar_Price'] >= 500000)]
 
 # Location Modification call locations less 15 repeatation as other
 df.location = df.location.apply(lambda x: x.strip())
@@ -70,11 +79,12 @@ st.write("""
 
 st.info(""" ##### In This Neighborhood Section you can find: ####
 
-* Hollywood Yearly Gorss Revenue [USD]
-* Hollywood Yearly Gross Change Rate
-* Number of Movie Released in Hollywood each Year  
-* Average Gross per Release   
-* Each year, the top-selling movie [detailed table]
+* Bangalore Total Neighborhoods
+* Top 159 Neighborhoods based on number of available properties  
+* Ordinary Neighborhoods Number of bedrooms to house price Scatter Plot  
+* Number of Big luxarios house in each Neighborhoods  
+* Luxuries Houses Scatter Plot
+
 
 
 
@@ -87,7 +97,7 @@ st.info(""" ##### In This Neighborhood Section you can find: ####
 #####################################################
 st.write(""" ## Bangalore Total Neighborhoods """)
 
-st.write("""  As of 2021, the population of Bangalore city is approximately 12.3 million. The area of Bangalore city is approximately 709 square kilometers (274 square miles). there are 1159 different neighborhoods in our data set, you can see the average price per square meter for each of these neighborhoods as following.
+st.write("""  Bangalore, also known as Bengaluru, is the capital city of the southern Indian state of Karnataka. With a population of over 12 million people, it is the third-most populous city in India. The city covers an area of approximately 741 square kilometers and is divided into various neighborhoods or localities, such as Koramangala, Indiranagar, Jayanagar, Malleshwaram, and Whitefield. Each neighborhood has its own unique culture and vibe, making Bangalore a diverse and vibrant city. you can see the average price per square meter for each of these neighborhoods as following. Raghuvanahalli ranked first in price per square meter, Raghuvanahalli is a quiet and peaceful residential neighborhood located in South Bangalore. It is situated near the Kanakapura Main Road, which provides easy access to the city's major hubs. The area is known for its greenery and is surrounded by several parks and open spaces, making it a popular destination for morning walks and jogging.
 
  """)
 
@@ -147,9 +157,27 @@ with c2:
                       yaxis_title='Total Price [USD]')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.write(""" ## Ordinary Neighborhoods Number of bedrooms to house price Scatter Plot """)
+
+st.write(""" The scatter plot showing the number of bedrooms in each neighborhood in relation to its price is shown. as well as the distribution of bedrooms across the property. The most popular properties in Bangalore are those with four and three rooms. the most expensive property in region worth 3.5 million dollar which has 4 bedrooms and located in Indiranagar neighborhood.
+""")
+
+
+source = df11
+chart = alt.Chart(source).mark_circle().encode(
+    x='Dollar_Price',
+    y='Number_of_Bedrooms',
+    color='Dollar_Price',
+).interactive()
+
+st.altair_chart(chart, theme="streamlit", use_container_width=True)
+
+
 st.write(""" ## Number of Big luxarios house in each Neighborhoods""")
 
-st.write("""  it is little bit hard to apprehend the information of 1159 different neighborhoods at one chart. So we focused on 159 neighborhoods that has the most number of building information in our data set. the first reason for this is talk about neiborhoods that we have enough information to talk about them accouratly. All the neighborhoods presented here have at least 15 individual building info in our data sets . offcourse all the optimum figures presented in this section are come from Bangalore total neighborhoods data frame. 
+st.write("""  Bangalore, is home to some of the most luxurious neighborhoods in India. One such neighborhood is the upscale area of Indiranagar. Located in the heart of the city, Indiranagar is known for its tree-lined streets, beautiful parks, and high-end boutiques. It is a popular destination for the city's elite and affluent residents. Indiranagar boasts a range of luxurious properties, from sprawling mansions to modern apartments with state-of-the-art amenities. The area is also home to a number of fine dining restaurants, trendy bars, and upscale shopping destinations.  
+In this dashboard, luxurious houses are those that cost more than half a million dollars and have more than four bedrooms. 
+you can see whitefield ranked first among neighboorhood with more than 20 ,Whitefield is a bustling neighborhood located in the eastern part of Bangalore,Once a quaint settlement on the outskirts of the city, Whitefield has now transformed into a major IT hub and residential area, attracting people from all over the world. The area is home to several multinational corporations, including IT giants such as IBM, Oracle, and Dell. 
 
  """)
 
@@ -161,17 +189,20 @@ fig.update_layout(legend_title=None, xaxis_title=None,
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
-##########################################################################
+st.write(""" ### Big Luxuries Houses  """)
 
-st.text(" \n")
-
-st.info(""" #### Summary: ####
-
-
-* As a result of the COVID-19 pandemic, the Hollywood annual gross dropped from \$11.36 billion in 2019 to \$2.11 billion in 2020
-* Annual gross has steadily increased, reaching nearly \$7.36 billion in 2022—a more than 112% increase in a single year.
-* Since 2000, the number of movies released has continuously risen, with 2018 seeing a record-breaking 993 movies released in a single year
-* The total gross fell by 82% in 2020 while the number of movies released fell by 44%.
-* Each movie's average gross revenue rose from \$12 million in 2019 to \$14.84 million in 2022.
-
+st.write(""" Bangalore is home to some of the most luxurious houses in India. These houses are equipped with state-of-the-art amenities and are designed with modern architecture. Many of these houses are located in prime locations and offer breathtaking views of the city. The interiors of these houses are designed with opulent furnishings and modern fixtures. Some of the features that are commonly found in these houses include private pools, spacious balconies, and lush gardens. Many of these houses also come equipped with home theaters, gyms, and game rooms. It's remarkable that homes with more than 10 bedrooms may be found in a variety of neighborhoods, some of which are inexpensive and have values significantly lower than homes with 4 bedrooms in the uptown area.
 """)
+
+
+source = df14
+chart = alt.Chart(source).mark_circle().encode(
+    x='Dollar_Price',
+    y='Number_of_Bedrooms',
+    color='Dollar_Price',
+).interactive()
+
+st.altair_chart(chart, theme="streamlit", use_container_width=True)
+
+
+##########################################################################

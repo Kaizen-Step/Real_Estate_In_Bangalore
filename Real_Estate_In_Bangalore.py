@@ -64,7 +64,7 @@ with c3:
 
 st.write("""## Own Your Dream House ##
 
-Imagine a house that is more than just a structure with four walls and a roof. A dream house is a place where you can escape from the chaos of everyday life and feel truly at home. It is a space where you can relax, unwind, and make memories that will last a lifetime. Your dream house is uniquely yours, tailored to your personal tastes and preferences. It is designed to meet your needs and cater to your lifestyle. Whether you prefer modern minimalism or a cozy cottage, your dream house reflects your individuality. Perhaps your dream house is perched on a hilltop with breathtaking views of the countryside. Maybe it's nestled among towering trees in a secluded forest. Or, it could be a sleek, urban high-rise with panoramic views of the city skyline. Inside, your dream house is a haven of comfort and luxury. It features the latest in technology and amenities, from state-of-the-art home automation systems to spa-like bathrooms and gourmet kitchens. Every detail has been carefully considered to create a space that is not only beautiful but functional. The living room is the heart of your dream house, where you can gather with family and friends to relax and entertain. It is warm and inviting, with plush seating, cozy blankets, and a fireplace to set the mood. The dining room is equally elegant, with a stunning table and chairs that are perfect for hosting dinner parties and holiday gatherings.
+Imagine a house that is more than just a structure with four walls and a roof. A dream house is a place where you can escape from the chaos of everyday life and feel truly at home. It is a space where you can relax, unwind, and make memories that will last a lifetime. Your dream house is uniquely yours, tailored to your personal tastes and preferences. It is designed to meet your needs and cater to your lifestyle. Whether you prefer modern minimalism or a cozy cottage, your dream house reflects your individuality. Perhaps your dream house is perched on a hilltop with breathtaking views of the countryside. Maybe it's nestled among towering trees in a secluded forest. Or, it could be a sleek, urban high-rise with panoramic views of the city skyline. Inside, your dream house is a haven of comfort and luxury. It features the latest in technology and amenities, from state-of-the-art home automation systems to spa-like bathrooms and gourmet kitchens. Every detail has been carefully considered to create a space that is not only beautiful but functional. The living room is the heart of your dream house, where you can gather with family and friends to relax and entertain. It is warm and inviting, with plush seating, cozy blankets, and a fireplace to set the mood. The dining room is equally elegant, with a stunning table and chairs that are perfect for hosting dinner parties and holiday gatherings.    
 Acquiring your dream house can be a thrilling and rewarding experience. It takes a combination of planning, patience, and persistence to make your dream a reality. Whether it's saving up for a down payment, researching different neighborhoods, or working with a real estate agent, taking intentional steps towards your goal can help you find the perfect place to call home. With this dashboard, we've done our best to make your journey through your dream easier by employing sophisticated machine learning tools and a massive data set.
 
 
@@ -79,7 +79,7 @@ Acquiring your dream house can be a thrilling and rewarding experience. It takes
 ######################################################
 
 st.write("""
-## Real Estate Price Prediction Application In Bangalore ##
+## Machine Learning Price Prediction Application In Bangalore ##
 Real Estate Price Prediction Application is a software tool that utilizes machine learning algorithms to forecast the future prices of properties in Bangalore, India. The application is designed to analyze various factors that influence the real estate market, such as location, area, number of bedrooms and Building type of the property, and provide accurate predictions of the property's future value. Bangalore is one of India's fastest-growing cities, with a thriving real estate market that attracts investors and homebuyers alike. By using this application, users can make informed decisions about buying or selling properties in Bangalore and maximize their returns on investment.
  """)
 #####################################################################################
@@ -300,4 +300,5 @@ with c1:
 
 with c2:
     st.info(
-        '**Project Github:  [Real Estate In Bangalore](https://github.com/Kaizen-Step/Hollywood_Box_Office_Tragedy)**', icon="💻")
+        '**Project Github:  [Real Estate In Bangalore](https://github.com/Kaizen-Step/Real_Estate_In_Bangalore)**', icon="💻")
+st.write(""" image resources: https://www.shutterstock.com/search/bangalore-house """)
